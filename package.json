@@ -1,36 +1,49 @@
 {
-  "name": "@audius/spl",
-  "version": "2.0.0",
-  "description": "The core Typescript mappings to the Audius Solana Programs",
-  "main": "dist/cjs/index.js",
-  "module": "dist/esm/index.js",
-  "types": "dist/types/index.d.ts",
-  "scripts": {
-    "start": "tsc --build --verbose --watch tsconfig.all.json",
-    "build": "tsc --build --verbose tsconfig.all.json",
-    "test": "vitest run",
-    "test:watch": "vitest"
+  "name": "@audius/hedgehog",
+  "version": "2.1.0",
+  "description": "A Metamask alternative that empowers you to build good UX",
+  "browser": {
+    "node-localstorage": false
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/AudiusProject/audius-protocol/tree/main/packages/spl"
-  },
-  "author": "Audius",
-  "license": "Apache-2.0",
-  "bugs": {
-    "url": "https://github.com/AudiusProject/audius-protocol/issues"
-  },
-  "homepage": "https://github.com/AudiusProject/audius-protocol/tree/main/packages/spl",
   "dependencies": {
-    "@coral-xyz/anchor": "0.29.0",
-    "@noble/hashes": "1.4.0",
-    "@solana/buffer-layout": "4.0.1",
-    "@solana/buffer-layout-utils": "0.2.0",
-    "@solana/spl-token": "0.3.8",
-    "@solana/web3.js": "1.93.4",
-    "bs58": "6.0.0"
+    "bip39": "3.0.4",
+    "browserify-cipher": "1.0.1",
+    "ethereumjs-wallet": "1.0.2",
+    "node-localstorage": "2.2.1",
+    "randombytes": "2.1.0",
+    "safe-buffer": "5.2.1"
   },
   "devDependencies": {
-    "vitest": "0.34.6"
-  }
+    "@tsconfig/node16-strictest": "1.0.3",
+    "@types/node": "18.6.1",
+    "@types/randombytes": "2.0.0",
+    "mocha": "10.0.0",
+    "rollup": "2.77.1",
+    "rollup-plugin-copy": "3.4.0",
+    "rollup-plugin-typescript2": "0.32.1",
+    "standard": "17.0.0",
+    "ts-mocha": "10.0.0",
+    "typescript": "4.7.4"
+  },
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "rollup -c",
+    "lint": "standard",
+    "lint:fix": "npm run lint -- --fix",
+    "typecheck": "tsc",
+    "test": "ts-mocha tests"
+  },
+  "standard": {
+    "globals": [
+      "Blob",
+      "self",
+      "Worker",
+      "postMessage",
+      "describe",
+      "it",
+      "beforeEach"
+    ]
+  },
+  "author": "",
+  "license": "MIT"
 }
